@@ -25,27 +25,20 @@
 			
 			//jah oli tühi
 			$password_error2 = "See väli on kohustuslik";
-		}
-		if(($_POST["password"]) !== ($_POST["password2"])); {
+		} elseif( empty($_POST["password2"]) == false && $_POST["password"] != $_POST["password2"]) {
 			
-			$password_error3 = "Parool ei kattu esimese parooliga";
-			echo"Paroolid ei kattu omavahel!";
+			$password_error3 = "Paroolid ei kattu omavahel";
+			//echo"Paroolid ei kattu omavahel!";
 		}
 	}
 ?>
-<html>
-	<head>
-		<title>Register page</title>
-	</head>
-	<body>
+<?php require_once("../header.php") ?>
 		<h2>Register</h2>
 		<form action="register.php" method="post">
 		<input name="email" type="email" placeholder="E-post"> <?php echo $email_error; ?> <br><br>
 		<input name="password" type="password" placeholder="Parool" > <?php echo $password_error; ?> <br><br>
-		<input name="password2" type="password" placeholder="Parool" > <?php echo $password_error2;?> <br><br>
+		<input name="password2" type="password" placeholder="Parool" > <?php echo $password_error2; echo $password_error3;?> <br><br>
 		<input type="submit" value="register"> <br><br>
 		</form>
 		
-		
-	</body>
-</html>
+<?php require_once("../footer.php") ?>
