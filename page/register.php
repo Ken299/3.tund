@@ -36,6 +36,10 @@
 		}
 	}
 ?>
+<?php
+	$page_title = "Registreerimine";
+	$file_name = "register.php";
+?>
 <?php require_once("../header.php") ?>
 		<h2>Register</h2>
 		<form action="register.php" method="post">
